@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap');
+
+:root {
+    --moderate-blue: hsl(238, 40%, 52%);
+    --soft-red: hsl(358, 79%, 66%);
+    --light-grayish-blue: hsl(239, 57%, 85%);
+    --pale-red: hsl(357, 100%, 86%);
+
+    --dark-blue: hsl(212, 24%, 26%);
+    --grayish-blue: hsl(211, 10%, 45%);
+    --light-gray: hsl(223, 19%, 93%);
+    --very-light-gray: hsl(228, 33%, 97%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Rubik", sans-serif;
+    font-size: 1rem;
+}
+
+body {
+    background-color: var(--very-light-gray);
+    padding: 2rem 1rem;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* position: relative; */
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.comment-box,.reply-comment-box {
+    background-color: white;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 1rem;
+}
+
+.profile-box {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    grid-column: 1/4;
+}
+
+.profile-image {
+    width: 2.5rem;
+}
+
+.profile-name {
+    color: var(--dark-blue);
+    font-weight: 500;
+}
+
+.you-box {
+    background-color: var(--moderate-blue);
+    color: white;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.created-at {
+    color: var(--grayish-blue);
+}
+
+.content-box {
+    color: var(--grayish-blue);
+    line-height: 1.5;
+    grid-area: 2/1/3/4;
+}
+
+.score-box {
+    background-color: var(--very-light-gray);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+}
+
+.plus-minus-icon {
+    cursor: pointer;
+}
+
+.plus-minus-icon:hover {
+    fill: var(--moderate-blue);
+}
+
+.score-text {
+    color: var(--moderate-blue);
+    font-weight: 500;
+}
+
+.reply-btn,
+.edit-btn,
+.del-btn {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    cursor: pointer;
+    grid-column: 3/4;
+    justify-self: flex-end;
+}
+
+.reply-btn:hover,
+.del-btn:hover,
+.edit-btn:hover {
+    opacity: 0.5;
+}
+
+.reply-text,
+.edit-text {
+    color: var(--moderate-blue);
+    font-weight: 500;
+}
+
+.del-text {
+    color: var(--soft-red);
+    font-weight: 500;
+}
+
+.delete-edit-box {
+    display: flex;
+    gap: 1rem;
+    grid-column: 3/4;
+    justify-self: flex-end;
+}
+
+.edit-textarea {
+    border-radius: 12px;
+    border-color: rgb(216, 214, 214);
+    color: var(--dark-blue);
+    cursor: pointer;
+    grid-area: 2/1/3/4;
+    font-size: 1rem;
+    font-weight: 500;
+    outline-color: rgba(51, 7, 51, 0.759);
+    resize: none;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.update-btn {
+    border-radius: 12px;
+    background-color: var(--moderate-blue);
+    color: white;
+    cursor: pointer;
+
+    grid-area: 3/3/4/4;
+    justify-self: flex-end;
+
+    padding-block: 1rem;
+    width: 6rem;
+    text-align: center;
+}
+
+.overlay-container{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.del-comment-box{
+    border-radius: 12px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    position: absolute;
+    left: 1.25rem;
+    top: 35%;
+
+    padding: 1.5rem 2rem;
+    width: 90%;
+}
+
+.del-comment-title{
+    color: var(--dark-blue);
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.del-comment-body{
+    color: var(--grayish-blue);
+    line-height: 1.4;
+}
+
+.del-comment-btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.no-del-btn,.yes-del-btn{
+    color: var(--very-light-gray);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.no-del-btn{
+    background-color: var(--grayish-blue);
+}
+
+.yes-del-btn{
+    background-color: var(--soft-red);
+}
+
+.user-reply-box {
+    margin-top: -1rem;
+}
+
+.user-reply-box,
+.user-comment-box {
+    background-color: white;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 1rem;
+}
+
+
+.user-reply-area,
+.user-comment-area {
+    border-radius: 12px;
+    border-color: rgb(216, 214, 214);
+    color: var(--dark-blue);
+    cursor: pointer;
+    grid-area: 1/1/2/4;
+    font-size: 1rem;
+    font-weight: 500;
+    outline-color: rgba(51, 7, 51, 0.759);
+    resize: none;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.user-profile-image {
+    align-self: center;
+    grid-area: 2/1/3/2;
+    width: 2.5rem;
+}
+
+.user-reply-btn,
+.user-comment-send-btn {
+    border-radius: 12px;
+    background-color: var(--moderate-blue);
+    color: white;
+    cursor: pointer;
+
+    grid-area: 2/3/3/4;
+    justify-self: flex-end;
+
+    padding-block: 1rem;
+    width: 6rem;
+    text-align: center;
+}
+
+.user-reply-btn:hover,
+.user-comment-send-btn:hover {
+    opacity: 0.5;
+}
+
+.reply-comment-container {
+    border-left: 2px solid rgb(236, 234, 234);
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media screen and (min-width:1280px) {
+    .main {
+        margin: 2rem auto;
+        width: 48%;
+    }
+
+    .comment-box,
+    .reply-comment-box {
+        grid-template-columns: 2.5rem auto auto;
+        grid-template-rows: repeat(2, auto);
+        column-gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .profile-box {
+        grid-area: 1/2/2/3;
+    }
+
+    .content-box {
+        grid-area: 2/2/3/4;
+    }
+
+    .score-box {
+        grid-area: 1/1/3/2;
+        flex-direction: column;
+        gap: 1.25rem;
+        height: 105px;
+    }
+
+    .reply-btn,
+    .delete-edit-box {
+        grid-area: 1/3/2/4;
+    }
+
+    .edit-textarea {
+        grid-area: 2/2/3/4;
+    }
+
+    .update-btn {
+        grid-area: 3/3/4/4;
+    }
+
+    .user-reply-box,
+    .user-comment-box {
+        grid-template-columns: 2.5rem auto 6rem;
+        column-gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .user-profile-image {
+        grid-area: 1/1/2/2;
+        align-self: flex-start;
+    }
+
+    .user-reply-area,
+    .user-comment-area {
+        grid-area: 1/2/2/3;
+    }
+
+    .user-reply-btn,
+    .user-comment-send-btn {
+        grid-area: 1/3/2/4;
+        align-self: flex-start;
+    }
+
+    .reply-comment-container {
+        width: 90%;
+        margin-left: auto;
+        padding-left: 2.5rem;
+    }
+
+    .del-comment-box{
+        left: 35%;
+        top: 35%;
+        width: 25rem;
+    }
+
+    .no-del-btn,.yes-del-btn{
+        padding: 1rem 2rem;
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
